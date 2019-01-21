@@ -1,8 +1,9 @@
 package edu.rvc.student.week6
 
 import android.content.Context
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 
@@ -30,6 +31,13 @@ class MainActivity : AppCompatActivity() {
 
             }
             hideKeyboard()
+        }
+
+        //Fire hidekeyboard when user taps outside any text object
+//Place below code right before last right bracket in function onCreate
+        findViewById<View>(android.R.id.content).setOnTouchListener { _, event ->
+            hideKeyboard()
+            false
         }
     }
     // function to hide keyboard goes right before the last right bracket of Class MainActivity
